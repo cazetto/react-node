@@ -6,8 +6,9 @@ const LogoBrand = props => (
         display: block;
         background-image: url(/static/png/logo-pt-large.png);
         background-repeat: no-repeat;
-        width: 160px;
+        width: 60px;
         height: 40px;
+        margin-right: 20px;
       }
     `}</style>
   </nav>
