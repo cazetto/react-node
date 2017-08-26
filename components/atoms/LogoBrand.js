@@ -1,6 +1,10 @@
+import Link from 'next/link'
+
 const LogoBrand = props => (
   <nav>
+    <Link href="/">
     <a className="logo"></a>
+    </Link>
     <style jsx>{`
       .logo {
         display: block;

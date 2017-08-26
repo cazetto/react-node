@@ -16,8 +16,6 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    console.log('props.items', this.props.items);
-
     return (
       <section role="search">
         <form action="/items" method="GET" onSubmit={event => {this.handleSubmit(event)}}>
@@ -26,7 +24,6 @@ class SearchBar extends React.Component {
             <i className="fa fa-search" aria-hidden="true"></i>
           </Button>
         </form>
-
         <style jsx>{`
           section {
             flex-grow: 1;
@@ -48,7 +45,6 @@ class SearchBar extends React.Component {
             outline: 0;
           }
         `}</style>
-
       </section>
     )
   }

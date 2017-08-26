@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "node server",
     "build": "next build",
-    "start": "next start"
+    "start": "node server.js",
+    "deploy": "now --public",
+    "heroku-postbuild": "next build"
   },
   "keywords": [],
   "author": "",

@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const linkStyle = {
   outline: '1px solid red'
 }
@@ -5,7 +7,9 @@ const linkStyle = {
 const ListItem = (props) => (
   <li>
     <article>
-      <a style={linkStyle} href={`/items/${props.data.id}`}>{props.data.title}</a>
+      <Link prefetch href={`/items/${props.data.id}`}>
+        <a style={linkStyle}>{props.data.title}</a>
+      </Link>
     </article>
   </li>
 );

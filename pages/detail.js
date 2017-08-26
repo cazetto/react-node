@@ -8,13 +8,11 @@ const Detail = props => (
 );
 
 Detail.getInitialProps = async ({ query:{ id } }) => {
-  const itemResponse = await fetch(`https://api.mercadolibre.com/items/${id}`);
+  const itemResponse = await fetch(`https://api.mercadolibre.com/items/${id}`)
   const item = await itemResponse.json()
-
-  const descriptionResponse = await fetch(`https://api.mercadolibre.com/items/${id}/description`);
+  const descriptionResponse = await fetch(`https://api.mercadolibre.com/items/${id}/description`)
   const description = await descriptionResponse.json()
-
-  return { item, description };
+  return { item, description }
 }
 
 export default Detail
