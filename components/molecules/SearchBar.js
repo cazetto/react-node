@@ -1,3 +1,4 @@
+import Router from 'next/router'
 import Button from '../atoms/Button'
 
 class SearchBar extends React.Component {
@@ -12,7 +13,9 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault()
+    event.preventDefault()
+    console.log('this', this);
+    Router.push(`/items?search=${this.state.value}`);
   }
 
   render() {
