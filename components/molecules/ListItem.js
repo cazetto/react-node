@@ -7,9 +7,7 @@ const linkStyle = {
 const ListItem = (props) => (
   <li>
     <article>
-      <Link prefetch href={`/items/${props.data.id}`}>
-        <a style={linkStyle}>{props.data.title}</a>
-      </Link>
+      <a href={`/items/${props.data.id}`} style={linkStyle}>{props.data.title}</a>
     </article>
   </li>
 );
