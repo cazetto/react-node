@@ -1,6 +1,6 @@
 const Button = props => (
   <div>
-    <button>{props.children}</button>
+    <button type="submit">{props.children}</button>
     <style jsx>{`
       button {
         padding-left: 13px;

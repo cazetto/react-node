@@ -11,8 +11,14 @@ app.prepare()
   const server = express()
 
   server.get('/items/:id', (req, res) => {
-    const actualPage = '/items';
-    const queryParams = { id: req.params.id };
+    const actualPage = '/detail'
+    const queryParams = { id: req.params.id }
+    app.render(req, res, actualPage, queryParams)
+  })
+
+  server.get('/items', (req, res) => {
+    const actualPage = '/items'
+    const queryParams = { search: req.query.search }
     app.render(req, res, actualPage, queryParams)
   })
 
@@ -24,7 +30,7 @@ app.prepare()
     if (err) throw err
     console.log('> Ready on http://localhost:3000')
   })
-  
+
 })
 .catch((ex) => {
   console.error(ex.stack)

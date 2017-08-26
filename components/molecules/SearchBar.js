@@ -1,6 +1,7 @@
 import Button from '../atoms/Button'
 
 class SearchBar extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {value: ''}
@@ -11,15 +12,16 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value)
-    event.preventDefault()
+    // event.preventDefault()
   }
 
   render() {
+    console.log('props.items', this.props.items);
+
     return (
       <section role="search">
-        <form onSubmit={() => {this.handleSubmit()}}>
-          <input  id="search" type="text" name="search" value={this.state.value} onChange={() => { this.handleChange(); }} />
+        <form action="/items" method="GET" onSubmit={event => {this.handleSubmit(event)}}>
+          <input id="search" type="text" name="search" value={this.state.value} onChange={(event) => { this.handleChange(event); }} />
           <Button>
             <i className="fa fa-search" aria-hidden="true"></i>
           </Button>
