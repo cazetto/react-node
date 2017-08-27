@@ -1,5 +1,5 @@
 import Router from 'next/router'
-import Button from '../atoms/Button'
+import ButtonSearch from '../atoms/ButtonSearch'
 
 class SearchBar extends React.Component {
 
@@ -23,9 +23,9 @@ class SearchBar extends React.Component {
       <section role="search">
         <form action="/items" method="GET" onSubmit={event => {this.handleSubmit(event)}}>
           <input id="search" type="text" name="search" value={this.state.value} onChange={(event) => { this.handleChange(event); }} />
-          <Button>
+          <ButtonSearch>
             <i className="fa fa-search" aria-hidden="true"></i>
-          </Button>
+          </ButtonSearch>
         </form>
         <style jsx>{`
           section {

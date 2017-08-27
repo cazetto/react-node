@@ -1,4 +1,4 @@
-const Button = props => (
+const ButtonSearch = props => (
   <div>
     <button type="submit">{props.children}</button>
     <style jsx>{`
@@ -23,4 +23,4 @@ const Button = props => (
   </div>
 )
 
-export default Button
+export default ButtonSearch

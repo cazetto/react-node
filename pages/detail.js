@@ -1,4 +1,5 @@
 import Layout from '../components/templates/Layout'
+import fetch from 'isomorphic-unfetch'
 
 const Detail = props => (
   <Layout>
