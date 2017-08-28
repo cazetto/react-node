@@ -3,13 +3,13 @@ import List from '../components/organisms/List'
 import fetch from 'isomorphic-unfetch'
 
 class Items extends React.Component {
-  static async getInitialProps({ query }) {
-    const res = await fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${query.search}`);
+  static async getInitialProps({ req, query }) {
+    const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+    const res = await fetch(`${baseUrl}/api/items?search=${query.search}`)
     const data = await res.json()
-    const items = data.results.slice(0, 4)
-    return {
-      items
-    }
+    const items = data.items.slice(0, 4)
+    const categories = data.categories
+    return { items, categories }
   }
 
   render() {

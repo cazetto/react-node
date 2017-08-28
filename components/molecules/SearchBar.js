@@ -14,8 +14,7 @@ class SearchBar extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log('this', this);
-    Router.push(`/items?search=${this.state.value}`);
+    Router.push(`/items?search=${this.state.value}`)
   }
 
   render() {

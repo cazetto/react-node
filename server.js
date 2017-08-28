@@ -4,11 +4,15 @@ const next = require('next')
 const port = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-const handle = app.getRequestHandler();
+const handle = app.getRequestHandler()
+
+const API = require('./api')
 
 app.prepare()
 .then(() => {
   const server = express()
+
+  server.use('/api', API)
 
   server.get('/items/:id', (req, res) => {
     const actualPage = '/detail'
