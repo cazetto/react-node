@@ -21,7 +21,7 @@ const Layout = (props) => (
       body {
         background: #EFEFEF;
         font: 16px Arial;
-        color: #2f2f2f;
+        color: #2d2d2d;
         padding-top: 54px;
       }
     `}</style>

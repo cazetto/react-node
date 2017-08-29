@@ -1,12 +1,16 @@
 import Layout from '../components/templates/Layout'
 import ItemDetail from '../components/templates/ItemDetail'
+import Breadcrumb from '../components/molecules/Breadcrumb'
 
 import fetch from 'isomorphic-unfetch'
 
 const Detail = props => (
   <div>
     <Layout>
-      <ItemDetail item={props.item} description={props.description} />
+      <div>
+        <Breadcrumb />
+        <ItemDetail item={props.item} description={props.description} />
+      </div>
     </Layout>
     <style jsx>{`
     `}</style>

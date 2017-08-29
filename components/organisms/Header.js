@@ -6,8 +6,10 @@ const Header = props => (
 
     <header>
       <Container>
-        <LogoBrand />
-        <SearchBar />
+        <div className="wrapper">
+          <LogoBrand />
+          <SearchBar />
+        </div>
       </Container>
       <style jsx>{`
         header {
@@ -19,6 +21,15 @@ const Header = props => (
           padding-top: 7px;
           padding-bottom: 6px;
           border-bottom: 1px solid #d9d9d9;
+        }
+        .wrapper {
+          display: flex;
+        }
+        @media(max-width: 770px) {
+          .wrapper {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
         }
       `}</style>
     </header>

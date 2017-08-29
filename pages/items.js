@@ -1,6 +1,7 @@
 import Layout from '../components/templates/Layout'
 import List from '../components/organisms/List'
 import fetch from 'isomorphic-unfetch'
+import Breadcrumb from '../components/molecules/Breadcrumb'
 
 class Items extends React.Component {
   static async getInitialProps({ req, query }) {
@@ -15,6 +16,7 @@ class Items extends React.Component {
   render() {
     return (
       <Layout>
+        <Breadcrumb />
         <List items={this.props.items} />
       </Layout>
     );
