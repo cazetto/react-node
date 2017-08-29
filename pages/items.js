@@ -7,7 +7,7 @@ class Items extends React.Component {
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
     const res = await fetch(`${baseUrl}/api/items?search=${query.search}`)
     const data = await res.json()
-    const items = data.items.slice(0, 4)
+    const items = data.items
     const categories = data.categories
     return { items, categories }
   }

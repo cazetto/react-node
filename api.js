@@ -1,15 +1,30 @@
 const Router = require('express').Router
 const fetch = require('isomorphic-unfetch')
+const async = require('async')
 
 const API = Router()
 
+API.get('/currencies/:id', function (req, res, next) {
+  fetch(`https://api.mercadolibre.com/currencies/${req.params.id}`)
+  .then(response => response.json())
+  .then(data => {
+    res.json(data)
+  })
+})
+
+API.get('/currencies/', function (req, res, next) {
+  fetch(`https://api.mercadolibre.com/currencies/`)
+  .then(response => response.json())
+  .then(data => {
+    res.json(data)
+  })
+})
 
 API.get('/items/:id/description', function (req, res, next) {
   fetch(`https://api.mercadolibre.com/items/${req.params.id}/description`)
   .then(response => response.json())
   .then(data => {
     res.json(data)
-    console.log('item description:', data)
   })
 })
 
@@ -18,7 +33,6 @@ API.get('/items/:id', function (req, res, next) {
   .then(response => response.json())
   .then(data => {
     res.json(data)
-    console.log('item:', data)
   })
 })
 
@@ -26,20 +40,19 @@ API.get('/items', function (req, res, next) {
   fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${req.query.search}`)
   .then(response => response.json())
   .then(data => {
-
     const items = data.results
-    .map(({id, title, price, currency_id, thumbnail, condition, free_shipping }) => {
+    .map(({id, title, price, currency_id, thumbnail, condition, free_shipping, sold_quantity }) => {
       return {
         id,
         title,
         price: {
           amount: price,
-          currency: currency_id,
-          decimals: null
+          currency_id,
         },
-        thumbnail,
+        picture: thumbnail,
         condition,
-        free_shipping
+        free_shipping,
+        sold_quantity
       }
     })
 
@@ -50,11 +63,19 @@ API.get('/items', function (req, res, next) {
       return prev
     },[])
 
-    res.json({
-      categories,
-      items
-    })
+    fetch(`https://api.mercadolibre.com/currencies/`)
+    .then(response => response.json())
+    .then(currencies => {
+      const itemsWithCurrency = items.map(item => {
+        const currency = currencies.find((element, index, array) => item.price.currency_id === element.id) || {}
+        item.price.currency = currency.symbol
+        item.price.decimals = currency.decimal_places
+        return item
+      })
 
+      
+      res.json({categories, items: itemsWithCurrency})
+    })
   })
 })
 

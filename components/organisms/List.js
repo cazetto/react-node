@@ -1,10 +1,14 @@
 import ListItem from '../molecules/ListItem'
 
 const List = (props) => {
-  console.log(props.items);
   return (
     <ul>
       {props.items.map((item) => <ListItem key={item.id} data={item} />)}
+      <style jsx>{`
+        ul {
+          width: 100%;
+        }
+      `}</style>
     </ul>
   );
 }

@@ -13,7 +13,6 @@ const Container = (props) => (
 
       @media(max-width: 770px) {
         .wrapper {
-          display: none;
           padding-left: 20px;
           padding-right: 20px;
         }

@@ -45,6 +45,11 @@ class SearchBar extends React.Component {
             font-size: 16px;
             font-family: 'Arial';
             outline: 0;
+            transition: box-shadow 0.2s ease-in-out;
+          }
+
+          input:focus {
+            box-shadow: 0 0 5px rgba(117, 127, 16, .2);
           }
         `}</style>
       </section>
