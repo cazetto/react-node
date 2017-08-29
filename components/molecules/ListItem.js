@@ -9,7 +9,7 @@ const ListItem = (props) => (
         <img src={props.data.picture} />
         <div className="item-info">
           <p>
-            <span className="currency">{props.data.price.currency}</span>
+            <span className="currency">{props.data.price.currency} </span>
             <span className="price">{numeral(props.data.price.amount).format('0,0')}</span>
           </p>
           <p>
@@ -25,14 +25,13 @@ const ListItem = (props) => (
     <style jsx>{`
       li {
         list-style-type: none;
-        margin-top: 1px;
+        background: white;
       }
       a, a:link, a:hover, a:visited {
         display: flex;
         flex-direction: row;
         text-decoration: none;
         color: #2f2f2f;
-        font-family: Arial;
         padding: 10px;
         transition: box-shadow .2s ease-in-out;
       }

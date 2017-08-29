@@ -16,6 +16,16 @@ const Layout = (props) => (
     <Container>
       {props.children}
     </Container>
+
+    <style jsx global>{`
+      body {
+        background: #EFEFEF;
+        font: 16px Arial;
+        color: #2f2f2f;
+        padding-top: 54px;
+      }
+    `}</style>
+
   </div>
 )
 

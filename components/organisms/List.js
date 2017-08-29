@@ -6,6 +6,7 @@ const List = (props) => {
       {props.items.map((item) => <ListItem key={item.id} data={item} />)}
       <style jsx>{`
         ul {
+          padding-top: 1px;
           width: 100%;
         }
       `}</style>

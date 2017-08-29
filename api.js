@@ -73,7 +73,6 @@ API.get('/items', function (req, res, next) {
         return item
       })
 
-      
       res.json({categories, items: itemsWithCurrency})
     })
   })

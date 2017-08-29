@@ -1,11 +1,16 @@
 import Layout from '../components/templates/Layout'
+import ItemDetail from '../components/templates/ItemDetail'
+
 import fetch from 'isomorphic-unfetch'
 
 const Detail = props => (
-  <Layout>
-    {props.item && props.item.title}
-    {props.description && console.log(props.description.title)}
-  </Layout>
+  <div>
+    <Layout>
+      <ItemDetail item={props.item} description={props.description} />
+    </Layout>
+    <style jsx>{`
+    `}</style>
+  </div>
 );
 
 Detail.getInitialProps = async ({ query, req }) => {
@@ -14,7 +19,7 @@ Detail.getInitialProps = async ({ query, req }) => {
   const item = await itemResponse.json()
   const descriptionResponse = await fetch(`${baseUrl}/api/items/${query.id}/description`)
   const description = await descriptionResponse.json()
-  return { item }
+  return { item, description }
 }
 
 export default Detail
