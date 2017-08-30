@@ -7,10 +7,8 @@ import fetch from 'isomorphic-unfetch'
 const Detail = props => (
   <div>
     <Layout>
-      <div>
-        <Breadcrumb />
-        <ItemDetail item={props.item} description={props.description} />
-      </div>
+      <Breadcrumb />
+      <ItemDetail item={props.item} description={props.description} />
     </Layout>
     <style jsx>{`
     `}</style>

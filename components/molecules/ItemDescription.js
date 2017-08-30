@@ -1,7 +1,9 @@
 const ItemDescription = (props) => (
   <section className="row">
     <div>
-      Description description description description description description description description description
+      {console.log('description', props.description)}
+
+      <td dangerouslySetInnerHTML={{__html: props.description.text}} />
     </div>
     <style jsx>{`
       section {
